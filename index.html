@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Social Media Links</title>
+    <title>Dan Messenger</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome Icons -->
@@ -17,57 +17,79 @@
             min-height: 100vh;
             background-color: #f4f4f4;
         }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Circular Image */
+            margin-bottom: 30px;
+            object-fit: cover; /* Ensures the image covers the area */
+        }
         .card {
-            margin: 10px;
+            margin: 10px 0;
             text-align: center;
+            border-radius: 5px; /* Rounded corners */
+        }
+        .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
         }
         .card-title {
-            margin-top: 15px;
+            margin-top: 5px;
         }
+        .card-link {
+            color: inherit;
+            text-decoration: none;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <div class="row justify-content-center">
-            <!-- BlueSkey Card -->
-            <div class="col-md-3 col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <i class="fas fa-globe fa-3x"></i>
-                        <h5 class="card-title">BlueSkey</h5>
-                        <a href="https://www.blueskey.com" class="btn btn-primary">Visit Page</a>
-                    </div>
-                </div>
+            <!-- Profile Picture Column -->
+            <div class="col-md-3 col-lg-3">
+                <img src="profile-picture.jpg" alt="Profile Picture" class="profile-pic">
+                <!-- You can add more content below your image if needed -->
             </div>
-            <!-- Twitter Card -->
-            <div class="col-md-3 col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <i class="fab fa-twitter fa-3x"></i>
-                        <h5 class="card-title">Twitter</h5>
-                        <a href="https://www.twitter.com" class="btn btn-info">Visit Page</a>
+
+            <!-- Social Media Links Column -->
+            <div class="col-md-9 col-lg-9">
+                <!-- BlueSkey Card -->
+                <a href="https://bsky.app/profile/danmessenger.bsky.social" class="card-link">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fas fa-globe fa-3x"></i>
+                            <h5 class="card-title">BlueSky</h5>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- Facebook Card -->
-            <div class="col-md-3 col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <i class="fab fa-facebook-f fa-3x"></i>
-                        <h5 class="card-title">Facebook</h5>
-                        <a href="https://www.facebook.com" class="btn btn-primary">Visit Page</a>
+                </a>
+                <!-- Twitter Card -->
+                <a href="https://twitter.com/MessengerDan" class="card-link">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fab fa-twitter fa-3x"></i>
+                            <h5 class="card-title">Twitter</h5>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- Instagram Card -->
-            <div class="col-md-3 col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <i class="fab fa-instagram fa-3x"></i>
-                        <h5 class="card-title">Instagram</h5>
-                        <a href="https://www.instagram.com" class="btn btn-danger">Visit Page</a>
+                </a>
+                <!-- Facebook Card -->
+                <a href="https://www.facebook.com/dan.messenger.98" class="card-link">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fab fa-facebook-f fa-3x"></i>
+                            <h5 class="card-title">Facebook</h5>
+                        </div>
                     </div>
-                </div>
+                </a>
+                <!-- Instagram Card -->
+                <a href="https://www.instagram.com/dan.messenger.98/" class="card-link">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fab fa-instagram fa-3x"></i>
+                            <h5 class="card-title">Instagram</h5>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
