@@ -3,100 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dan Messenger's personal links for Bluesky, X / Twitter, Facebook, and Instagram.">
+    <meta property="og:title" content="Dan Messenger">
+    <meta property="og:description" content="Find Dan Messenger on Bluesky, X / Twitter, Facebook, and Instagram.">
+    <meta property="og:type" content="profile">
+    <meta property="og:image" content="profile-picture.jpg">
+    <meta name="theme-color" content="#f7f4ef">
     <title>Dan Messenger</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
     <style>
-        body {
-            padding-top: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%; /* Circular Image */
-            margin-bottom: 30px;
-            object-fit: cover; /* Ensures the image covers the area */
-        }
-        .card {
-            margin: 10px 0;
-            text-align: center;
-            border-radius: 5px; /* Rounded corners */
-        }
-        .card:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease-in-out;
-        }
-        .card-title {
-            margin-top: 5px;
-        }
-        .card-link {
-            color: inherit;
-            text-decoration: none;
+        :root {
+            color-scheme: light;
+            --background: #f7f4ef;
+            --surface: #ffffff;
+            --surface-strong: #f1ece4;
+            --text: #1f2933;
+            --muted: #68727d;
+            --border: #ddd5ca;
+            --focus: #1264a3;
+            --shadow: 0 18px 45px rgba(31, 41, 51, 0.11);
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(247, 244, 239, 0) 42%),
+                var(--background);
+        }
+
+        main {
+            width: min(100%, 920px);
+            min-height: 100vh;
+            margin: 0 auto;
+            padding: 56px 24px;
+            display: grid;
+            grid-template-columns: minmax(210px, 0.85fr) minmax(280px, 1.5fr);
+            gap: 48px;
+            align-items: center;
+        }
+
+        .profile {
+            display: grid;
+            gap: 20px;
+            justify-items: start;
+        }
+
+        .profile-pic {
+            width: clamp(128px, 18vw, 168px);
+            height: clamp(128px, 18vw, 168px);
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            border: 5px solid var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.2rem, 7vw, 4.7rem);
+            line-height: 0.95;
+            letter-spacing: 0;
+        }
+
+        .intro {
+            max-width: 28ch;
+            margin: -8px 0 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        .links {
+            display: grid;
+            gap: 14px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .social-link {
+            display: grid;
+            grid-template-columns: 56px 1fr auto;
+            gap: 16px;
+            align-items: center;
+            min-height: 78px;
+            padding: 12px 18px 12px 12px;
+            color: inherit;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: 0 10px 22px rgba(31, 41, 51, 0.06);
+            transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            border-color: #bdb2a5;
+            box-shadow: 0 15px 30px rgba(31, 41, 51, 0.1);
+        }
+
+        .social-link:focus-visible {
+            outline: 3px solid var(--focus);
+            outline-offset: 4px;
+        }
+
+        .icon {
+            width: 56px;
+            height: 56px;
+            display: grid;
+            place-items: center;
+            border-radius: 8px;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.35rem;
+            background: var(--accent);
+        }
+
+        .name {
+            display: block;
+            font-size: 1.18rem;
+            font-weight: 750;
+        }
+
+        .handle {
+            display: block;
+            margin-top: 2px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .arrow {
+            color: var(--muted);
+            font-size: 1.35rem;
+            line-height: 1;
+        }
+
+        @media (max-width: 700px) {
+            main {
+                min-height: auto;
+                padding: 32px 18px;
+                grid-template-columns: 1fr;
+                gap: 28px;
+                align-items: start;
+            }
+
+            .profile {
+                justify-items: center;
+                text-align: center;
+            }
+
+            .intro {
+                margin-top: -10px;
+            }
+
+            .social-link {
+                grid-template-columns: 48px 1fr auto;
+                min-height: 68px;
+                gap: 12px;
+                padding: 10px 14px 10px 10px;
+            }
+
+            .icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.15rem;
+            }
+
+            .name {
+                font-size: 1.05rem;
+            }
+
+            .handle {
+                font-size: 0.88rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <!-- Profile Picture Column -->
-            <div class="col-md-3 col-lg-3">
-                <img src="profile-picture.jpg" alt="Profile Picture" class="profile-pic">
-                <h1>Dan Messenger</h1>
-            </div>
+    <main>
+        <section class="profile" aria-labelledby="profile-title">
+            <img src="profile-picture.jpg" alt="Dan Messenger" class="profile-pic" width="352" height="352">
+            <h1 id="profile-title">Dan Messenger</h1>
+            <p class="intro">Personal links and social profiles in one quiet corner of the web.</p>
+        </section>
 
-            <!-- Social Media Links Column -->
-            <div class="col-md-9 col-lg-9">
-                <!-- BlueSkey Card -->
-                <a href="https://bsky.app/profile/danmessenger.bsky.social" class="card-link">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class="fas fa-globe fa-3x"></i>
-                            <h5 class="card-title">BlueSky</h5>
-                        </div>
-                    </div>
-                </a>
-                <!-- Twitter Card -->
-                <a href="https://twitter.com/MessengerDan" class="card-link">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class="fab fa-twitter fa-3x"></i>
-                            <h5 class="card-title">Twitter</h5>
-                        </div>
-                    </div>
-                </a>
-                <!-- Facebook Card -->
-                <a href="https://www.facebook.com/dan.messenger.98" class="card-link">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class="fab fa-facebook-f fa-3x"></i>
-                            <h5 class="card-title">Facebook</h5>
-                        </div>
-                    </div>
-                </a>
-                <!-- Instagram Card -->
-                <a href="https://www.instagram.com/dan.messenger.98/" class="card-link">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class="fab fa-instagram fa-3x"></i>
-                            <h5 class="card-title">Instagram</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <nav aria-label="Social profiles">
+            <ul class="links">
+                <li>
+                    <a class="social-link" href="https://bsky.app/profile/danmessenger.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Dan Messenger on Bluesky">
+                        <span class="icon" style="--accent: #1185fe;" aria-hidden="true">B</span>
+                        <span>
+                            <span class="name">Bluesky</span>
+                            <span class="handle">@danmessenger.bsky.social</span>
+                        </span>
+                        <span class="arrow" aria-hidden="true">></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" href="https://twitter.com/MessengerDan" target="_blank" rel="noopener noreferrer" aria-label="Dan Messenger on X / Twitter">
+                        <span class="icon" style="--accent: #111111;" aria-hidden="true"><i class="fab fa-twitter"></i></span>
+                        <span>
+                            <span class="name">X / Twitter</span>
+                            <span class="handle">@MessengerDan</span>
+                        </span>
+                        <span class="arrow" aria-hidden="true">></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" href="https://www.facebook.com/dan.messenger.98" target="_blank" rel="noopener noreferrer" aria-label="Dan Messenger on Facebook">
+                        <span class="icon" style="--accent: #1877f2;" aria-hidden="true"><i class="fab fa-facebook-f"></i></span>
+                        <span>
+                            <span class="name">Facebook</span>
+                            <span class="handle">dan.messenger.98</span>
+                        </span>
+                        <span class="arrow" aria-hidden="true">></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" href="https://www.instagram.com/dan.messenger.98/" target="_blank" rel="noopener noreferrer" aria-label="Dan Messenger on Instagram">
+                        <span class="icon" style="--accent: #c13584;" aria-hidden="true"><i class="fab fa-instagram"></i></span>
+                        <span>
+                            <span class="name">Instagram</span>
+                            <span class="handle">@dan.messenger.98</span>
+                        </span>
+                        <span class="arrow" aria-hidden="true">></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </main>
 </body>
 </html>
