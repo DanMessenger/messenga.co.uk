@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="No Nap Wednesdays: a tiny midweek manifesto for staying awake, making something, and keeping the day gently interesting.">
+    <meta property="og:title" content="No Nap Wednesdays">
+    <meta property="og:description" content="A tiny midweek manifesto for staying awake, making something, and keeping the day gently interesting.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#f6f1e8">
+    <title>No Nap Wednesdays</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --background: #f6f1e8;
+            --surface: #fffaf1;
+            --text: #222831;
+            --muted: #68707a;
+            --border: #dfd2bf;
+            --accent: #d6552d;
+            --accent-strong: #153f3f;
+            --shadow: 0 18px 44px rgba(34, 40, 49, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                linear-gradient(150deg, rgba(214, 85, 45, 0.11), rgba(246, 241, 232, 0) 36%),
+                linear-gradient(330deg, rgba(21, 63, 63, 0.10), rgba(246, 241, 232, 0) 42%),
+                var(--background);
+        }
+
+        main {
+            width: min(100%, 980px);
+            margin: 0 auto;
+            padding: 56px 22px;
+        }
+
+        .hero {
+            min-height: calc(100vh - 112px);
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+            gap: 42px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            margin: 0 0 14px;
+            color: var(--accent);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            max-width: 11ch;
+            margin: 0;
+            font-size: clamp(3.2rem, 11vw, 7.4rem);
+            line-height: 0.88;
+            letter-spacing: 0;
+        }
+
+        .intro {
+            max-width: 42rem;
+            margin: 24px 0 0;
+            color: var(--muted);
+            font-size: clamp(1.08rem, 2vw, 1.32rem);
+            line-height: 1.55;
+        }
+
+        .pledge {
+            display: grid;
+            gap: 18px;
+            padding: 24px;
+            background: rgba(255, 250, 241, 0.84);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .sun {
+            width: 112px;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: #ffffff;
+            background: var(--accent);
+            box-shadow: 0 0 0 12px rgba(214, 85, 45, 0.13), 0 0 0 28px rgba(214, 85, 45, 0.08);
+            font-size: 3rem;
+            font-weight: 900;
+        }
+
+        .pledge h2,
+        .rituals h2 {
+            margin: 0;
+            font-size: 1.45rem;
+            line-height: 1.2;
+        }
+
+        .pledge p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .rituals {
+            margin-top: 38px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .ritual-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin: 20px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .ritual-list li {
+            min-height: 152px;
+            padding: 18px;
+            background: rgba(255, 250, 241, 0.72);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .ritual-list strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--accent-strong);
+            font-size: 1.05rem;
+        }
+
+        .ritual-list span {
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 760px) {
+            main {
+                padding: 34px 18px;
+            }
+
+            .hero {
+                min-height: auto;
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .pledge {
+                padding: 20px;
+            }
+
+            .sun {
+                width: 86px;
+                font-size: 2.3rem;
+            }
+
+            .ritual-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="hero" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow">A midweek pact</p>
+                <h1 id="page-title">No Nap Wednesdays</h1>
+                <p class="intro">Wednesday is the hinge of the week: too far from Monday to be noble, too far from Friday to coast. No Nap Wednesdays is a small, unserious rule for keeping the middle of the week awake, curious, and just productive enough.</p>
+            </div>
+
+            <aside class="pledge" aria-labelledby="pledge-title">
+                <div class="sun" aria-hidden="true">N</div>
+                <h2 id="pledge-title">The pledge</h2>
+                <p>No sofa drift. No accidental duvet admin. No "just ten minutes" that becomes a lost afternoon. Take the walk, make the drink, finish the thing, and let bedtime have the victory it earned.</p>
+            </aside>
+        </section>
+
+        <section class="rituals" aria-labelledby="rituals-title">
+            <h2 id="rituals-title">Approved substitutes</h2>
+            <ul class="ritual-list">
+                <li>
+                    <strong>The brisk reset</strong>
+                    <span>Ten minutes outside, preferably with weather that has opinions.</span>
+                </li>
+                <li>
+                    <strong>The useful brew</strong>
+                    <span>Tea, coffee, or something cold in a proper glass. Ceremony beats sleepiness.</span>
+                </li>
+                <li>
+                    <strong>The tiny finish</strong>
+                    <span>Pick one task small enough to complete before the kettle cools.</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
